@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="vi" data-wf-domain="cali-villa.webflow.io" data-wf-page="6669437e5b4787fc378b3c7d" data-wf-site="66693ce69ab4af61d9849513">
+<head>
+    <meta charset="utf-8"/>
+    <title>ANmaison</title>
+    <meta name="description" content="Một dự án bất động sản mang tính di sản, được kiến tạo như một tài sản truyền đời, nơi hội tụ tinh hoa kiến trúc, không gian sống và giá trị bền vững."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="theme-color" content="#1a0507"/>
+    
+    <meta property="og:title" content="ANmaison | Song Tôn Vị Thế, Gia Bảo Truyền Đời" />
+    <meta property="og:description" content="Khám phá kiệt tác bất động sản mang tính di sản, hội tụ tinh hoa kiến trúc Indochine và không gian sống bền vững." />
+    <meta property="og:image" content="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776422768/AMS_Logo_White_ldqpdn.svg" />
+    <meta property="og:type" content="website" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://res.cloudinary.com/djpasasgr/raw/upload/v1776420187/UTM_Essendine_Caps_odwkat.ttf" as="font" type="font/ttf" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/css/cali-villa.webflow.3f2f10de8.css" rel="stylesheet" type="text/css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           0. CSS VARIABLES
+           ========================================= */
+        :root {
+            --bg-dark-primary: #1a0507;
+            --bg-dark-secondary: #330a0d;
+            --text-light: #F4F1EA;
+            --accent-dark: #6e0d21;
+            --font-heading: 'UTM Essendine Caps', serif;
+            --font-body: 'Inter Tight', sans-serif;
+            --border-light: rgba(244, 241, 234, 0.2);
+            --border-light-hover: rgba(244, 241, 234, 0.6);
+            --transition-standard: all 0.3s ease;
+        }
+
+        /* =========================================
+           1. CORE & TYPOGRAPHY
+           ========================================= */
+        html { scroll-behavior: smooth; }
+        
+        .w-webflow-badge { display: none !important; }
+
+        @font-face {
+            font-family: 'UTM Essendine Caps';
+            src: url('https://res.cloudinary.com/djpasasgr/raw/upload/v1776420187/UTM_Essendine_Caps_odwkat.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            background-color: var(--bg-dark-primary) !important;
+            color: var(--text-light) !important;
+            font-family: var(--font-body) !important;
+            font-weight: 300 !important;
+            font-size: 14px !important;
+            line-height: 1.7 !important;
+            letter-spacing: 0.5px !important;
+            overflow-x: hidden;
+        }
+
+        .section, .section-moving-text, .section-big-image, .footer, .w-tab-pane, .tabs-content, .master-faq {
+            background-color: transparent !important;
+        }
+
+        p, div, a, span, li, .subtitle, .nav-link, .expanded-text {
+            color: var(--text-light) !important;
+            font-size: 0.9rem !important;
+            font-weight: 300 !important;
+        }
+
+        .text-big { font-size: 1.1rem !important; font-weight: 300 !important; line-height: 1.6 !important; }
+
+        h1, h2, h3, h4, h5, h6, .text-moving-text, .text-style-h3, .text-faq-heading {
+            font-family: var(--font-heading) !important;
+            font-weight: normal !important;
+            color: var(--text-light) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 3px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 20px !important;
+        }
+        h1 { font-size: 2.0rem !important; }
+        h2 { font-size: 2.0rem !important; }
+        h3 { font-size: 1.2rem !important; }
+
+        /* =========================================
+           2. COMPONENT STYLES
+           ========================================= */
+        .color-quote-mark { color: var(--accent-dark) !important; }
+        .quote-mark-large {
+            font-family: var(--font-heading) !important; 
+            font-size: 5rem !important; display: block; line-height: 1;
+            margin-bottom: -10px !important; text-transform: none !important; 
+        }
+        .intro-quote-text {
+            font-family: var(--font-heading) !important;
+            font-size: 1.25rem !important; line-height: 1.6 !important;
+            font-weight: 300 !important; text-transform: none !important; 
+            letter-spacing: normal !important; margin-bottom: 40px !important;
+        }
+
+        .value-flex-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; align-items: start; margin-top: 48px; }
+        .value-item-centered { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .value-icon { width: 44px; height: 44px; margin-bottom: 20px; color: var(--text-light); opacity: 0.8; transition: var(--transition-standard); }
+        .value-item-centered:hover .value-icon { opacity: 1; transform: translateY(-5px); }
+        .value-icon svg { width: 100%; height: 100%; stroke: currentColor; stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .value-title-small { font-size: 0.95rem !important; margin-bottom: 12px !important; letter-spacing: 2px !important; line-height: 1.4 !important; }
+        .value-desc-small { font-size: 0.8rem !important; opacity: 0.7; line-height: 1.6 !important; }
+
+        .hero-home { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .wrap-background-hero-home {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;
+            background-color: var(--bg-dark-primary);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+        .video-hero-home { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        .overlay-hero-home {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
+            background: linear-gradient(to bottom, rgba(26, 5, 7, 0.4) 0%, rgba(26, 5, 7, 0.8) 100%) !important;
+        }
+        .title-wrap-home { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 20px; }
+        .hero-logo { max-width: 400px; width: 100%; height: auto; margin-bottom: -80px; opacity: 0.9; }
+        .hero-buttons { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; }
+
+        .line-hero-home, .expand-line, .wrap-line-hero-home { background-color: rgba(244, 241, 234, 0.3) !important; }
+        .item-list-divider, .item-list-divider.line-bottom, .divider-bottom-footer, .divider-legal-footer, .expandable-content-flex { border-color: var(--border-light) !important; }
+
+        .cta {
+            border: 1px solid var(--border-light-hover) !important; color: var(--text-light) !important; background: transparent !important;
+            font-size: 0.8rem !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; padding: 12px 24px !important;
+            transition: var(--transition-standard); text-decoration: none; cursor: pointer; display: inline-block;
+        }
+        .cta:hover { background: var(--text-light) !important; color: var(--bg-dark-primary) !important; }
+        .cta.secondary { border: 1px solid rgba(244, 241, 234, 0.3) !important; color: rgba(244, 241, 234, 0.7) !important; }
+        .cta.secondary:hover { border-color: var(--text-light) !important; color: var(--text-light) !important; background: transparent !important; }
+        a:hover { opacity: 0.8 !important; transition: var(--transition-standard); }
+
+        .image-map { filter: opacity(0.9) !important; width: 100%; height: auto; object-fit: cover; }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+        .news-card { border: 1px solid var(--border-light); padding: 32px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-standard); height: 100%; }
+        .news-card:hover { border-color: var(--border-light-hover); transform: translateY(-2px); }
+        .news-card a { margin-top: 24px; display: inline-block; text-decoration: underline; text-underline-offset: 4px; font-size: 0.8rem !important; text-transform: uppercase; letter-spacing: 1px; }
+
+        .form-success-message {
+            display: none; text-align: center; padding: 40px 20px;
+            border: 1px solid var(--border-light-hover); background: rgba(244, 241, 234, 0.05);
+            margin-top: 32px;
+        }
+        .form-success-message h3 { margin-bottom: 10px !important; color: var(--bg-dark-primary) !important; }
+        .form-success-message p { color: var(--bg-dark-primary) !important; }
+
+        /* =========================================
+           3. INTERACTIVE TIMELINE STYLES
+           ========================================= */
+        .timeline-scroll-wrapper {
+            width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+            padding-bottom: 24px; margin-top: 48px; scrollbar-width: thin; scrollbar-color: var(--border-light) transparent;
+        }
+        .timeline-scroll-wrapper::-webkit-scrollbar { height: 6px; }
+        .timeline-scroll-wrapper::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+        
+        .timeline-container { display: flex; align-items: flex-start; justify-content: space-between; position: relative; min-width: 1200px; padding: 20px 0; margin: 0 auto; }
+        .timeline-line {
+            position: absolute; top: 50px; left: 0; right: 0; height: 2px; z-index: 1;
+            background: linear-gradient(to right, var(--border-light) 0%, var(--border-light) calc(50% - 45px), transparent calc(50% - 45px), transparent calc(50% + 45px), var(--border-light) calc(50% + 45px), var(--border-light) 100%);
+        }
+        .timeline-item { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; width: 120px; cursor: pointer; }
+        .timeline-time { font-family: var(--font-body); font-size: 1rem; height: 24px; line-height: 24px; margin-bottom: 20px; color: var(--text-light); transition: var(--transition-standard); }
+        .timeline-dot { width: 14px; height: 14px; background-color: var(--text-light); border-radius: 50%; margin-bottom: 24px; box-shadow: 0 0 0 8px var(--bg-dark-primary); transition: var(--transition-standard); }
+        .timeline-title { font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; margin-bottom: 6px; line-height: 1.4; color: var(--text-light); transition: var(--transition-standard); }
+        .timeline-subtitle { font-family: var(--font-body); font-style: italic; font-size: 0.75rem; opacity: 0.6; line-height: 1.3; }
+        
+        .timeline-item:hover .timeline-dot { transform: scale(1.4); background-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 0 8px var(--bg-dark-primary); }
+        .timeline-item:hover .timeline-time, .timeline-item:hover .timeline-title { color: #fff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); }
+        
+        .timeline-center-logo { position: relative; z-index: 2; background-color: transparent; padding: 0 15px; margin-top: -5px; display: flex; justify-content: center; align-items: center; }
+
+        @keyframes elegantHeartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .timeline-center-logo img {
+            animation: elegantHeartbeat 2.5s infinite;
+            filter: drop-shadow(0 0 5px rgba(244, 241, 234, 0.3)); 
+            transition: var(--transition-standard);
+        }
+        
+        .timeline-center-logo img:hover {
+            animation-duration: 1.5s; 
+            filter: drop-shadow(0 0 12px rgba(244, 241, 234, 0.6));
+        }
+
+        /* =========================================
+           4. USP STICKY / MOBILE OVERRIDES
+           ========================================= */
+        .grid-scroll-usp { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; }
+        .master-sticky-usp { position: sticky; top: 120px; height: calc(100vh - 240px); display: flex; align-items: center; }
+        
+        .wrap-images-usp { 
+            position: relative; width: 100%; height: 100%; 
+            -webkit-mask-image: url('https://res.cloudinary.com/djpasasgr/image/upload/v1776676958/ams_icon_ayhch6.svg');
+            -webkit-mask-size: contain; 
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-image: url('https://res.cloudinary.com/djpasasgr/image/upload/v1776676958/ams_icon_ayhch6.svg');
+            mask-size: contain; 
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+        
+        .image-sticky-usp { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; transition: opacity 0.5s ease; 
+        }
+        
+        .image-sticky-usp-mobile { 
+            display: none; width: 100%; margin: 24px 0; object-fit: cover; aspect-ratio: 2 / 3; 
+            -webkit-mask-image: url('https://res.cloudinary.com/djpasasgr/image/upload/v1776676958/ams_icon_ayhch6.svg');
+            -webkit-mask-size: contain;
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-image: url('https://res.cloudinary.com/djpasasgr/image/upload/v1776676958/ams_icon_ayhch6.svg');
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+        
+        .single-sticky-usp { padding: 40px 0; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
+
+        /* =========================================
+           5. UTILITIES & HELPERS
+           ========================================= */
+        .text-center { text-align: center; } .text-left { text-align: left; }
+        .mx-auto { margin-left: auto; margin-right: auto; } .w-full { width: 100%; }
+        .no-margins { margin: 0; }
+        .mb-12 { margin-bottom: 12px !important; } .mb-24 { margin-bottom: 24px !important; }
+        .mb-32 { margin-bottom: 32px !important; } .mb-40 { margin-bottom: 40px !important; }
+        .mb-64 { margin-bottom: 64px !important; }
+        .mt-16 { margin-top: 16px !important; } .mt-48 { margin-top: 48px !important; }
+        .mt-64 { margin-top: 64px !important; } .mt-120 { margin-top: 120px !important; }
+        .pt-120 { padding-top: 120px !important; }
+        .max-w-500 { max-width: 500px; } .max-w-600 { max-width: 600px; }
+        .max-w-700 { max-width: 700px; } .max-w-800 { max-width: 800px; }
+        .flex-col-center { display: flex; flex-direction: column; align-items: center; }
+        .opacity-60 { opacity: 0.6; } .opacity-70 { opacity: 0.7; } .opacity-80 { opacity: 0.8; }
+        .uppercase-tracked { text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle-elegant { text-transform: uppercase; font-size: 0.75rem !important; letter-spacing: 3px; }
+        .font-utm { font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+        /* =========================================
+           6. FOOTER STYLES
+           ========================================= */
+        .top-footer { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); margin-bottom: 40px; margin-top: 40px; }
+        .link-footer-top { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .icon-footer-top-link { width: 24px; height: 24px; object-fit: contain; }
+        
+        .grid-bottom-footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px; margin-bottom: 48px; width: 100%;}
+        .bottom-left-bottom-footer { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end;}
+        .legal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 24px;}
+        .link-small-footer { text-decoration: none; text-transform: uppercase; font-size: 0.8rem !important; letter-spacing: 1px; }
+        .link-small-footer:hover { opacity: 0.7; }
+        .link-legal-footer { text-decoration: none; }
+        .link-legal-footer:hover { text-decoration: underline; }
+
+        /* =========================================
+           7. MASTERPLAN & INTERACTIVE LEGEND
+           ========================================= */
+        .masterplan-wrapper { display: grid; grid-template-columns: 3fr 1fr; gap: 48px; align-items: center; }
+        .map-container { position: relative; width: 120%; border-radius: 8px; background-color: transparent; padding: 32px; }
+        
+        /* Bọc ngoài ảnh để tạo lớp nền */
+        .map-inner { position: relative; width: 100%; border-radius: 8px; overflow: hidden; transition: all 0.4s ease; }
+        
+        /* Ảnh bản đồ gốc nằm dưới cùng */
+        .map-image { width: 100%; height: auto; display: block; position: relative; z-index: 1; transition: filter 0.4s ease; }
+
+        /* Lớp phủ chứa SVG Overlay (Nằm trên cùng - z-index: 5) */
+        .map-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+        
+        /* Lớp nền đen theo viền dự án (chỉ hiện khi có zone được chọn) */
+        .site-overlay-mask {
+            fill: rgba(0, 0, 0, 0.75);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        
+        /* Khi click chọn Zone -> Hiện nền đen che dự án */
+        .map-inner.dimmed .site-overlay-mask { opacity: 1; }
+        .map-inner.dimmed .hotspot { opacity: 0; pointer-events: none; }
+
+        /* Các nhóm Zone trong SVG Overlay */
+        .zone-group { opacity: 0; transition: opacity 0.4s ease; cursor: pointer; pointer-events: auto; }
+        .zone-group.active { opacity: 1; }
+
+        /* MÀU SẮC ĐƯỜNG VIỀN GỐC TỪ FILE CỦA BẠN */
+        .zone-group[data-zone="avenue"] path { fill: #0e79bf !important; stroke: none !important; }
+        .zone-group[data-zone="garden"] path { fill: #07a05a !important; stroke: none !important; }
+        .zone-group[data-zone="royale"] path { fill: #edbf12 !important; stroke: none !important; }
+
+        /* Các cục Hotspot số (1, 2, 3...) */
+        .hotspot { position: absolute; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; transform: translate(-50%, -50%); cursor: pointer; transition: all 0.3s ease; z-index: 10; border: 1px solid transparent; background-color: var(--bg-dark-primary) !important; color: var(--text-light) !important; border-color: var(--bg-dark-primary) !important; }
+
+        .zone-keys { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 40px; justify-content: center; }
+        
+        /* Interactive Badges (Legends) */
+        .zone-badge { 
+            position: relative; /* REQUIRED for absolute mini-popup positioning */
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 12px 24px 12px 16px; border-radius: 6px; 
+            background-color: rgba(255, 255, 255, 0.6); 
+            border: 1px solid rgba(26, 5, 7, 0.08) !important;
+            text-align: left; min-width: 220px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+            cursor: pointer; transition: all 0.3s ease; 
+        }
+        .zone-badge.avenue { border-left: 10px solid #0e79bf !important; }
+        .zone-badge.garden { border-left: 10px solid #07a05a !important; }
+        .zone-badge.royale { border-left: 10px solid #edbf12 !important; }
+        
+        .zone-badge:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+        .zone-badge.dimmed { opacity: 0.5; filter: grayscale(80%); }
+        
+        /* Trạng thái khi Badge được Click */
+        .zone-badge.avenue.active { background-color: #0e79bf !important; border-color: #0e79bf !important; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(14, 121, 191, 0.3); }
+        .zone-badge.avenue.active .zone-title, .zone-badge.avenue.active .zone-subtitle { color: #ffffff !important; }
+
+        .zone-badge.garden.active { background-color: #07a05a !important; border-color: #07a05a !important; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(7, 160, 90, 0.3); }
+        .zone-badge.garden.active .zone-title, .zone-badge.garden.active .zone-subtitle { color: #ffffff !important; }
+
+        .zone-badge.royale.active { background-color: #edbf12 !important; border-color: #edbf12 !important; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(237, 191, 18, 0.3); }
+        .zone-badge.royale.active .zone-title, .zone-badge.royale.active .zone-subtitle { color: #1a0507 !important; }
+
+        .zone-title { font-family: var(--font-body) !important; font-size: 1rem !important; font-weight: 500 !important; text-transform: none !important; margin-bottom: 4px !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--bg-dark-primary) !important; }
+        .zone-subtitle { font-family: var(--font-body) !important; font-size: 0.8rem !important; font-weight: 400 !important; text-transform: none !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--bg-dark-primary) !important; }
+
+        /* MINI POPUP STYLES */
+        .zone-mini-popup {
+            position: absolute;
+            bottom: calc(100% + 15px); /* Nổi lên trên badge */
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 1px solid rgba(26, 5, 7, 0.05);
+            cursor: default;
+        }
+        /* Mũi tên chỉ xuống */
+        .zone-mini-popup::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #ffffff transparent transparent transparent;
+        }
+        /* Hiện popup khi badge đang active */
+        .zone-badge.active .zone-mini-popup {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .mini-popup-desc {
+            font-size: 0.8rem !important;
+            color: var(--bg-dark-primary) !important;
+            line-height: 1.5 !important;
+            margin-bottom: 12px;
+        }
+        .mini-popup-stats {
+            font-size: 0.85rem !important;
+            color: var(--accent-dark) !important;
+            border-top: 1px solid rgba(26,5,7,0.1);
+            padding-top: 8px;
+            font-family: var(--font-body);
+        }
+
+        .legend-panel { display: flex; flex-direction: column; height: 100%; }
+        .legend-list { list-style: none; padding: 0; margin: auto 0; display: flex; flex-direction: column; gap: 20px; }
+        .legend-item { display: flex; align-items: flex-start; gap: 16px; cursor: pointer; transition: opacity 0.3s ease; opacity: 0.6; }
+        .legend-item:hover, .legend-item.active { opacity: 1; }
+        .legend-number { flex-shrink: 0; width: 24px; height: 24px; background-color: transparent; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 2px; transition: all 0.3s ease; border: 1px solid var(--bg-dark-primary) !important; color: var(--bg-dark-primary) !important; }
+        .legend-item:hover .legend-number, .legend-item.active .legend-number { background-color: var(--bg-dark-primary) !important; color: var(--text-light) !important; }
+        .legend-text h4 { margin: 0 0 4px 0 !important; font-family: var(--font-body) !important; font-size: 0.9rem !important; letter-spacing: 1px !important; text-transform: none !important; font-weight: 500 !important; color: var(--bg-dark-primary) !important; }
+        .legend-text p { margin: 0 !important; font-size: 0.75rem !important; font-style: italic; opacity: 0.8; color: var(--bg-dark-primary) !important; }
+        .collection-callout { margin-top: 48px; text-align: center; border-top: 1px solid rgba(26, 5, 7, 0.2); padding-top: 32px; }
+
+        /* =========================================
+           8. SOLID LIGHT SECTION (MASTERPLAN)
+           ========================================= */
+        .section-light {
+            background-color: var(--text-light) !important; 
+            padding-top: 100px; padding-bottom: 100px; margin-top: 80px; 
+            width: 100vw; position: relative; left: 50%; right: 50%;
+            margin-left: -50vw; margin-right: -50vw;
+        }
+        .section-light h2, .section-light h4, .section-light p, .section-light .legend-text h4, .section-light .legend-text p, .section-light .zone-title, .section-light .zone-subtitle, .section-light .collection-callout div { color: var(--bg-dark-primary) !important; }
+        .section-light .subtitle-elegant { color: var(--accent-dark) !important; font-weight: 500 !important; }
+        .section-light .hotspot { background-color: var(--bg-dark-primary) !important; color: var(--text-light) !important; border-color: var(--bg-dark-primary) !important; }
+        .section-light .hotspot:hover, .section-light .hotspot.active { background-color: var(--accent-dark) !important; color: var(--text-light) !important; box-shadow: 0 0 15px rgba(110, 13, 33, 0.4) !important; }
+        .section-light .legend-number { border-color: var(--bg-dark-primary) !important; color: var(--bg-dark-primary) !important; }
+        .section-light .legend-item:hover .legend-number, .section-light .legend-item.active .legend-number { background-color: var(--bg-dark-primary) !important; color: var(--text-light) !important; }
+        .section-light .collection-callout { border-top-color: rgba(26, 5, 7, 0.2) !important; }
+
+        /* =========================================
+           9. LIGHT THEME SECTIONS (NEWS & CONTACT)
+           ========================================= */
+        .bg-light { background-color: #F4F1EA !important; color: var(--bg-dark-primary) !important; padding-top: 80px; padding-bottom: 80px; margin-top: 0 !important; }
+        .bg-light h2, .bg-light h3, .bg-light p, .bg-light div, .bg-light .uppercase-tracked { color: var(--bg-dark-primary) !important; }
+        .bg-light .cta { border-color: var(--bg-dark-primary) !important; color: var(--bg-dark-primary) !important; }
+        .bg-light .cta:hover { background-color: var(--bg-dark-primary) !important; color: var(--text-light) !important; }
+        .bg-light .news-card { border-color: rgba(26, 5, 7, 0.2) !important; }
+        .bg-light .news-card:hover { border-color: var(--bg-dark-primary) !important; }
+        .bg-light .news-card a { color: var(--bg-dark-primary) !important; }
+        
+        /* NEW FORM STYLES */
+        .form-heading-brown { color: var(--accent-dark) !important; font-size: 2.2rem !important; margin-bottom: 48px !important; text-transform: uppercase; font-family: var(--font-heading) !important; font-weight: normal !important; letter-spacing: 3px !important;}
+        .form-light-container { text-align: left; max-width: 700px; margin: 0 auto; width: 100%; }
+        .form-group-light { margin-bottom: 32px; position: relative; }
+        .form-group-light label { display: block; font-size: 0.95rem; margin-bottom: 8px; color: var(--bg-dark-primary); }
+        .form-group-light label .required { color: var(--accent-dark); margin-left: 4px; }
+        .input-underline {
+            width: 100%; border: none; border-bottom: 1px solid var(--bg-dark-primary); background: transparent;
+            padding: 8px 0; font-size: 1rem; color: var(--bg-dark-primary); outline: none; transition: border-width 0.3s;
+            font-family: var(--font-body);
+        }
+        .input-underline:focus { border-bottom: 2px solid var(--bg-dark-primary); }
+        
+        .radio-group-title { font-size: 1.1rem !important; margin-bottom: 16px !important; color: var(--bg-dark-primary) !important; font-weight: 500 !important; }
+        .radio-options-wrapper { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+        .radio-label { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 0.95rem; color: var(--bg-dark-primary); }
+        .radio-label input[type="radio"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent-dark); margin:0; }
+        
+        .textarea-bordered {
+            width: 100%; border: 1px solid var(--bg-dark-primary); background: transparent; padding: 12px;
+            min-height: 120px; font-size: 1rem; color: var(--bg-dark-primary); outline: none; resize: vertical; margin-top: 8px;
+            font-family: var(--font-body);
+        }
+        
+        .form-actions-light { display: flex; align-items: center; gap: 32px; margin-top: 40px; }
+        .btn-submit-light {
+            background: var(--accent-dark); color: #ffffff !important; border: none; padding: 16px 48px; 
+            font-family: var(--font-body); font-weight: 600; font-size: 1rem; cursor: pointer; 
+            text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s;
+        }
+        .btn-submit-light:hover { opacity: 0.85; }
+        .btn-cancel-light {
+            background: transparent; border: none; color: var(--accent-dark) !important; font-size: 1rem; cursor: pointer; font-family: var(--font-body);
+        }
+        .btn-cancel-light:hover { text-decoration: underline; }
+
+        /* =========================================
+           10. RESPONSIVE BREAKPOINTS
+           ========================================= */
+        @media (max-width: 991px) {
+            .value-flex-row { grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
+            .grid-scroll-usp { gap: 40px; }
+            .masterplan-wrapper { grid-template-columns: 1fr; gap: 32px; }
+            .collection-callout { margin-top: 32px; }
+        }
+        
+        @media (max-width: 767px) {
+            .mt-120, .pt-120 { margin-top: 64px !important; padding-top: 64px !important; }
+            .mb-64 { margin-bottom: 32px !important; }
+            .section { padding-left: 20px; padding-right: 20px; overflow: hidden; }
+
+            .nav-menu { background-color: var(--bg-dark-primary) !important; padding: 20px; }
+            .line-hamburger { background-color: var(--text-light) !important; }
+            
+            h1 { font-size: 1.6rem !important; line-height: 1.4 !important; }
+            h2 { font-size: 1.3rem !important; } 
+            h3 { font-size: 1.1rem !important; }
+            .quote-mark-large { font-size: 3rem !important; margin-bottom: 0 !important; }
+            .intro-quote-text { font-size: 1.05rem !important; }
+            
+            .hero-logo { width: 80%; margin-bottom: -40px; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .cta { text-align: center; width: 100%; box-sizing: border-box; }
+
+            .value-flex-row { grid-template-columns: 1fr; gap: 40px; margin-top: 32px; }
+            
+            .grid-scroll-usp { grid-template-columns: 1fr; gap: 0; }
+            .master-sticky-usp { display: none !important; }
+            .image-sticky-usp-mobile { display: block; }
+            .single-sticky-usp { padding: 24px 0; min-height: auto; opacity: 1 !important; }
+            
+            .news-grid { grid-template-columns: 1fr; gap: 24px; }
+            
+            .form-heading-brown { font-size: 1.6rem !important; line-height: 1.4 !important; }
+            .top-footer { flex-direction: column; gap: 16px; align-items: flex-start; margin-bottom: 32px; }
+            .grid-bottom-footer-flex { flex-direction: column; align-items: flex-start; gap: 32px; }
+            .left-bottom-footer { flex-direction: column; align-items: flex-start !important; gap: 24px !important;}
+            .bottom-left-bottom-footer { flex-direction: column; gap: 16px; align-items: flex-start !important;}
+            .legal-footer { flex-direction: column; text-align: center; gap: 12px; }
+
+            .map-container { padding: 16px; }
+            .hotspot { width: 20px; height: 20px; font-size: 0.6rem; }
+            .zone-badge { width: 100%; }
+        }
+        
+        @media (max-width: 479px) {
+            .hero-logo { width: 90%; }
+            h1 { font-size: 1.4rem !important; }
+        }
+    </style>
+
+    <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+</head>
+<body>
+    <header data-w-id="d92f9c9a-c5c8-7d7e-bb4c-fb636eb11df1" data-animation="default" data-collapse="small" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+        <div class="container-navbar w-container">
+            <nav role="navigation" class="nav-menu w-nav-menu" aria-label="Main Navigation">
+                <a href="#home" aria-current="page" class="nav-link w-nav-link w--current">Trang chủ</a>
+                <a href="#intro" class="nav-link w-nav-link">Giới thiệu</a>
+                <a href="#residences" class="nav-link w-nav-link">Sản phẩm</a>
+                <a href="#location" class="nav-link w-nav-link">Vị trí</a>
+                <a href="#news" class="nav-link w-nav-link">Tin tức</a>
+                <a href="#contact" class="nav-link w-nav-link">Liên hệ</a>
+            </nav>
+            <div class="menu-button w-nav-button" aria-label="Toggle Navigation" aria-expanded="false" role="button" tabindex="0">
+                <div class="inside-menu-button">
+                    <div class="line-hamburger first-line"></div>
+                    <div class="line-hamburger second-line"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section hero-home">
+            <div data-w-id="03843876-6ec6-5df0-3547-6e15e38e76bd" class="wrap-background-hero-home">
+                <video class="video-hero-home" autoplay loop muted playsinline aria-label="Background video of ANmaison property">
+                    <source src="https://res.cloudinary.com/djpasasgr/video/upload/q_auto/f_auto/v1776687326/0417_nu0eyl.mov" type="video/mp4">
+                </video>
+                <div class="overlay-hero-home"></div>
+            </div>
+            
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="title-wrap-home">
+                    <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776422768/AMS_Logo_White_ldqpdn.svg" alt="ANmaison Logo" class="hero-logo" data-aos="fade-up" data-aos-duration="1200" />
+                    
+                    <h1 class="mb-12" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">SONG TÔN VỊ THẾ.<br>GIA BẢO TRUYỀN ĐỜI.</h1>
+                    <div class="subtitle subtitle-elegant mb-32" data-aos="fade-up" data-aos-delay="400">TAILORED ALLURE. SINGULAR CREATION. LASTING HEIRLOOM.</div>
+                    
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                        <a href="#intro" class="cta w-button">Khám phá dự án</a>
+                        <a href="#residences" class="cta secondary w-button">Xem sản phẩm</a>
+                    </div>
+
+                    <div class="wrap-line-hero-home mt-48" data-aos="zoom-in" data-aos-delay="800">
+                        <div class="line-hero-home"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="intro" class="section padding-bottom-120 pt-120">
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="max-w-800 mx-auto text-center" data-aos="fade-up">
+                    <div class="quote-mark-container" aria-hidden="true">
+                        <span class="quote-mark-large color-quote-mark">“</span>
+                    </div>
+                    <h3 class="intro-quote-text no-margins mb-40">
+                        Kiến trúc phải ăn sâu vào mảnh đất nơi nó đứng,<br>
+                        nói ngôn ngữ của chính vùng đất đó.”
+                    </h3>
+                    <div class="subtitle subtitle-elegant mb-32" data-aos="fade-up" data-aos-delay="400">KENGO KUMA</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="values" class="section padding-bottom-120">
+            <div class="w-layout-blockcontainer main-container w-container text-center">
+                <h2 class="no-margins mb-24" data-aos="fade-up">Những giá trị<br>kiến tạo chuẩn sống</h2>
+                
+                <div class="value-flex-row">
+                    <div class="value-item-centered" data-aos="fade-up" data-aos-delay="100">
+                        <div class="value-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M2 22h20"></path><path d="M12 2l-10 8h20z"></path><path d="M6 10v12"></path><path d="M10 10v12"></path><path d="M14 10v12"></path><path d="M18 10v12"></path></svg>
+                        </div>
+                        <h3 class="value-title-small">Biểu tượng kiến trúc<br>Indochine đầu tiên</h3>
+                        <p class="value-desc-small">Kiệt tác tiên phong với thiết kế hai mặt tiền thông minh, đa năng, kiến tạo không gian sống lý tưởng cho nhiều thế hệ.</p>
+                    </div>
+                    
+                    <div class="value-item-centered" data-aos="fade-up" data-aos-delay="200">
+                        <div class="value-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="value-title-small">Chuẩn sống đa thế hệ<br>linh hoạt & bền vững</h3>
+                        <p class="value-desc-small">Không gian được tối ưu để đáp ứng nhu cầu sinh hoạt, kinh doanh và kết nối gia đình trong dài hạn.</p>
+                    </div>
+                    
+                    <div class="value-item-centered" data-aos="fade-up" data-aos-delay="300">
+                        <div class="value-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3 class="value-title-small">Tâm điểm<br>phong cách sống mới</h3>
+                        <p class="value-desc-small">Nơi hội tụ tinh hoa ẩm thực, mua sắm và trở thành điểm đến check-in mới ngay tại ngưỡng cửa.</p>
+                    </div>
+                    
+                    <div class="value-item-centered" data-aos="fade-up" data-aos-delay="400">
+                        <div class="value-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                        </div>
+                        <h3 class="value-title-small">Kết nối trọn vẹn<br>đô thị & thiên nhiên</h3>
+                        <p class="value-desc-small">Liền mạch với nhịp sống thành phố, đồng thời là dự án duy nhất kết nối trực tiếp công viên bờ sông Hải Phòng.</p>
+                    </div>
+                    
+                    <div class="value-item-centered" data-aos="fade-up" data-aos-delay="500">
+                        <div class="value-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                        </div>
+                        <h3 class="value-title-small">Bảo chứng từ<br>chủ đầu tư quốc tế</h3>
+                        <p class="value-desc-small">Dự án được phát triển bởi sự hợp lực của các chủ đầu tư tầm cỡ quốc tế, cam kết chất lượng và giá trị bền vững.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="section mt-64">
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="flex-heading-link" data-aos="fade-down">
+                    <h2 class="no-margins">Trái Tim sầm uất miền đất cảng</h2>
+                    <a href="https://maps.app.goo.gl/ER5gcmxhXxJemyjv6" target="_blank" rel="noopener noreferrer" class="link-with-icon w-inline-block opacity-70" aria-label="Xem vị trí chi tiết trên bản đồ Google Maps">
+                        <img src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666a3b7eff34fed16e3c8de7_map-pin.svg" loading="lazy" alt="" class="icon-in-link" aria-hidden="true"/>
+                        <div class="uppercase-tracked" style="font-size: 0.8rem;">Xem vị trí trên bản đồ</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div data-aos="fade-in" data-aos-duration="1500">
+                <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776505292/AN_Location_Map_FINAL_revert_label_5_njjgea.png" loading="lazy" alt="Bản đồ vị trí dự án ANmaison" class="image-map"/>
+            </div>
+
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="timeline-scroll-wrapper" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">10 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Ga Hải Phòng</div>
+                            <div class="timeline-subtitle">Train Station</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">10 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Trung tâm<br>Hành chính mới</div>
+                            <div class="timeline-subtitle">New Political &<br>Administrative Center</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">7 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Cảng<br>Hải Phòng</div>
+                            <div class="timeline-subtitle">Port</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">4 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Nhà hát<br>Thành Phố</div>
+                            <div class="timeline-subtitle">Opera House</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">2 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Trường học</div>
+                            <div class="timeline-subtitle">Nearest School</div>
+                        </div>
+
+                        <div class="timeline-center-logo">
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776674742/ams_icon_ibwjfn.svg" alt="ANmaison Emblem" style="width: 60px; height: 60px;" aria-hidden="true" />
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">1 min</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Công viên<br>bờ sông</div>
+                            <div class="timeline-subtitle">Interactive<br>River Park</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">1 min</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Cầu Hoàng Gia</div>
+                            <div class="timeline-subtitle">Royal Bridge</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">4 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Cát Bi</div>
+                            <div class="timeline-subtitle">Plaza</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">5 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Bệnh viện</div>
+                            <div class="timeline-subtitle">Nearest Hospital</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">15 mins</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Sân bay Cát Bi</div>
+                            <div class="timeline-subtitle">Airport</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="residences" class="section before-track mt-120">
+            <div class="w-layout-blockcontainer container-heading-track w-container">
+                <div class="heading-left flex-col-center text-left" style="align-items: flex-start;" data-aos="fade-up">
+                    <h2 class="no-margins mb-12">Bộ sưu tập giới hạn</h2>
+                    <p class="max-w-600 mb-24">Các dòng sản phẩm được thiết kế theo phong cách Indochine hiện đại, tối ưu công năng và giá trị thẩm mỹ, đáp ứng nhu cầu đa dạng của cư dân.</p>
+                    <div><a href="#contact" class="cta w-button">Khám phá sản phẩm</a></div>
+                </div>
+            </div>
+        </section>
+
+        <div data-w-id="cff00eed-4935-ab86-3642-20ae8851061e" class="track">
+            <div class="camera">
+                <div class="frame">
+                    <div class="master-horizontal-item">
+                        <div class="inside-horizontal-item">
+                            <img src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971141b9de3c13a8adfcd_Scroll%201.webp" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 99vw" srcset="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971141b9de3c13a8adfcd_Scroll%201-p-500.webp 500w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971141b9de3c13a8adfcd_Scroll%201-p-800.webp 800w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971141b9de3c13a8adfcd_Scroll%201-p-1080.webp 1080w, https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776675558/AMS_Value_Commercial_bdwyu3.webp 2246w" alt="Phối cảnh Shophouse" class="image-horizontal-section opacity-80"/>
+                            <div class="overlay-horizontal">
+                                <div class="text-style-h3">Nhà phố thương mại</div>
+                                <div class="subtitle max-w-500" style="white-space: normal;">Thiết kế linh hoạt, kết hợp giữa kinh doanh và sinh sống, tối ưu giá trị khai thác.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="master-horizontal-item">
+                        <div class="inside-horizontal-item">
+                            <img src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/6669711489d69ca78f29a8d5_Scroll%203.webp" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 99vw" srcset="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/6669711489d69ca78f29a8d5_Scroll%203-p-500.webp 500w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/6669711489d69ca78f29a8d5_Scroll%203-p-800.webp 800w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/6669711489d69ca78f29a8d5_Scroll%203-p-1080.webp 1080w, https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776679930/AMS_Value_Living_ha9bis.webp 2246w" alt="Phối cảnh Nhà phố" class="image-horizontal-section opacity-80"/>
+                            <div class="overlay-horizontal">
+                                <div class="text-style-h3">Nhà phố sân vườn</div>
+                                <div class="subtitle max-w-500" style="white-space: normal;">Không gian sống hiện đại, tối ưu ánh sáng tự nhiên và thông gió.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="master-horizontal-item">
+                        <div class="inside-horizontal-item">
+                            <img src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971136de49b0b25b43cde_Scroll%204.webp" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 94vw, (max-width: 991px) 92vw, 99vw" srcset="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971136de49b0b25b43cde_Scroll%204-p-500.webp 500w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971136de49b0b25b43cde_Scroll%204-p-800.webp 800w, https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666971136de49b0b25b43cde_Scroll%204-p-1080.webp 1080w, https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776675540/AMS_Shop_Villas_2_jhyjga.webp 2246w" alt="Phối cảnh Biệt thự" class="image-horizontal-section opacity-80"/>
+                            <div class="overlay-horizontal">
+                                <div class="text-style-h3">Nhà phố dinh thự</div>
+                                <div class="subtitle max-w-500" style="white-space: normal;">Thiết kế độc bản, đề cao sự riêng tư, dành cho những chủ nhân tinh hoa.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="masterplan" class="section section-light">
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="text-center mb-40" data-aos="fade-up">
+                    <h2 class="no-margins">Masterplan</h2>
+                    <div class="subtitle subtitle-elegant mt-16">Mặt bằng phân khu & Tiện ích</div>
+                </div>
+
+                <div class="masterplan-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <div class="map-column">
+                        <div class="map-container">
+                            <div class="map-inner">
+                                <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776681726/AMS_Stacking_Plan_26APR_xybsal.png" alt="ANmaison Masterplan" class="map-image" />
+                                
+                                <svg class="map-overlay" viewBox="0 0 1360.63 892.91" preserveAspectRatio="xMidYMid meet">
+                                    
+                                    <path class="site-overlay-mask" d="M1056.54,381.88h-26.05c-9.54,0-14.4-4.86-14.4-10.86v-171.69c0-6-4.86-10.86-10.86-10.86H222.11c-6,0-10.86,4.86-10.86,10.86v105.11c0,6-4.86,10.86-10.86,10.86h-48.11c-6.65,0-12.04,5.39-12.04,12.04v33.58c0,3.33-2.7,6.02-6.02,6.02h-50.44c-6.65,0-12.04,5.39-12.04,12.04v115.03c0,6,4.86,10.86,10.86,10.86h245.04c6,0,10.86,4.86,10.86,10.86v56.43c0,6,4.86,10.86,10.86,10.86h396.7c5.17,0,9.36,4.19,9.36,9.36v89.46c0,6,4.86,10.86,10.86,10.86h266.19c6,0,10.86-4.86,10.86-10.86v-214.42s3.34-39.86,22.24-69.13c4.57-7.08-.62-16.41-9.04-16.41Z"/>
+
+                                    <g class="zone-group" data-zone="avenue">
+                                        <path d="M741.07,411.6c.41,0,.8.16,1.08.46l4.33,4.45c.27.28.43.66.43,1.05v21.51c0,.83-.68,1.51-1.51,1.51h-82.82s-13.34,0-13.34,0h-73.58c-.83,0-1.51-.68-1.51-1.51v-22.58c0-.44.19-.86.53-1.15l3.95-3.38c.27-.23.62-.36.98-.36h161.46M741.07,410.1h-161.46c-.72,0-1.41.26-1.96.72l-3.95,3.38c-.67.57-1.05,1.41-1.05,2.29v22.58c0,1.66,1.35,3.01,3.01,3.01h96.07s9.16,0,9.16,0h64.51c1.66,0,3.01-1.35,3.01-3.01v-21.51c0-.79-.3-1.53-.85-2.1l-4.33-4.45c-.56-.58-1.35-.91-2.16-.91h0Z"/>
+                                        <path d="M737.03,345.05v.03h7.96c.78,0,1.4.63,1.4,1.4v19.43c0,.37-.15.73-.41.99l-3.88,3.9c-.26.26-.62.41-1,.41h-4.1v-.03h-365.89c-.39,0-.75-.16-1.02-.44l-3.68-3.88c-.25-.26-.39-.61-.39-.97v-19.45c0-.78.63-1.4,1.4-1.4h369.6M737.03,343.55h-369.6c-1.6,0-2.9,1.3-2.9,2.9v19.45c0,.75.28,1.46.8,2l3.68,3.88c.55.58,1.31.91,2.11.91h365.59c.1.02.2.03.3.03h4.1c.77,0,1.52-.31,2.06-.86l3.88-3.9c.55-.55.85-1.28.85-2.05v-19.43c0-1.6-1.3-2.9-2.9-2.9h-7.66c-.1-.02-.2-.03-.3-.03h0Z"/>
+                                        <path d="M113,411.52c.78,0,1.41.63,1.41,1.42v44.57c0,.78-.63,1.42-1.42,1.42h-28.75c-.78,0-1.42-.63-1.42-1.42v-36.16c0-.37.14-.73.4-.99l8.18-8.38c.27-.27.63-.43,1.01-.43.01,0,.03,0,.04,0,.95.03,2.93.04,5.34.04,5.14,0,12.2-.05,15.18-.07,0,0,0,0,.01,0M113,410.02h0s-.02,0-.02,0c-2.84.02-10,.07-15.17.07-2.67,0-4.45-.01-5.29-.04-.02,0-.07,0-.09,0-.79,0-1.53.31-2.08.88l-8.18,8.38c-.53.55-.83,1.27-.83,2.04v36.16c0,1.61,1.31,2.92,2.92,2.92h28.75c1.61,0,2.92-1.31,2.92-2.92v-44.57c0-1.61-1.31-2.92-2.91-2.92h0Z"/>
+                                        <path d="M543.63,411.6c.37,0,.73.14.99.4l7.16,6.98c.27.27.43.63.43,1.01v19.16c0,.78-.63,1.42-1.42,1.42h-184.81c-.78,0-1.42-.63-1.42-1.42v-22.75c0-.39.16-.76.44-1.03l3.59-3.39c.26-.25.61-.39.97-.39h174.07M543.63,410.1h-174.07c-.75,0-1.46.28-2,.8l-3.59,3.39c-.58.55-.91,1.32-.91,2.12v22.75c0,1.61,1.31,2.92,2.92,2.92h184.81c1.61,0,2.92-1.31,2.92-2.92v-19.16c0-.78-.32-1.54-.88-2.09l-7.16-6.98c-.55-.53-1.27-.83-2.04-.83h0Z"/>
+                                        <path d="M326.03,345.05c.78,0,1.42.63,1.42,1.42v20.7c0,.39-.16.77-.45,1.03l-5.45,5.12c-.26.25-.61.38-.97.38h-101.11c-.78,0-1.42-.63-1.42-1.42v-25.83c0-.78.63-1.42,1.42-1.42h106.56M326.03,343.55h-106.56c-1.61,0-2.92,1.31-2.92,2.92v25.83c0,1.61,1.31,2.92,2.92,2.92h101.11c.75,0,1.45-.28,2-.79l5.45-5.12c.58-.55.92-1.32.92-2.13v-20.7c0-1.61-1.31-2.92-2.92-2.92h0Z"/>
+                                        <path d="M322.57,411.5c.38,0,.75.16,1.02.43l4.88,5.05c.26.26.4.62.4.99v21.19c0,.78-.63,1.42-1.42,1.42H119.57c-.78,0-1.42-.63-1.42-1.42v-26.24c0-.78.63-1.42,1.42-1.42h203M322.57,410.01H119.57c-1.61,0-2.92,1.31-2.92,2.92v26.24c0,1.61,1.31,2.92,2.92,2.92h207.88c1.61,0,2.92-1.31,2.92-2.92v-21.19c0-.76-.29-1.48-.82-2.03l-4.88-5.05c-.55-.57-1.31-.89-2.1-.89h0Z"/>
+                                    </g>
+                                    
+                                    <g class="zone-group" data-zone="garden">
+                                        <path d="M745.6,538c.72,0,1.31.59,1.31,1.31v21.39c0,.36-.15.71-.41.95l-3.41,3.2c-.24.23-.56.35-.89.35h-163.03c-.31,0-.61-.11-.85-.31l-3.82-3.24c-.29-.25-.46-.61-.46-1v-21.35c0-.72.59-1.31,1.31-1.31h170.26M745.6,536.5h-170.26c-1.55,0-2.81,1.26-2.81,2.81v21.35c0,.83.36,1.61.99,2.14l3.82,3.24c.51.43,1.15.67,1.82.67h163.03c.72,0,1.4-.27,1.92-.76l3.41-3.2c.56-.53.89-1.27.89-2.05v-21.39c0-1.55-1.26-2.81-2.81-2.81h0Z"/>
+                                        <path d="M988.68,544.78v23.34h-78.73l-4.91-5.52v-17.82h83.63M988.68,543.28h-83.63c-.83,0-1.5.67-1.5,1.5v17.82c0,.37.13.72.38,1l4.91,5.52c.28.32.69.5,1.12.5h78.73c.83,0,1.5-.67,1.5-1.5v-23.34c0-.83-.67-1.5-1.5-1.5h0Z"/>
+                                        <path d="M989.59,587.85v77.63h-21.2v-69.27l7.48-8.36h13.72M989.59,586.35h-13.72c-.43,0-.83.18-1.12.5l-7.48,8.36c-.25.27-.38.63-.38,1v69.27c0,.83.67,1.5,1.5,1.5h21.2c.83,0,1.5-.67,1.5-1.5v-77.63c0-.83-.67-1.5-1.5-1.5h0Z"/>
+                                        <path d="M320.22,305.39c.39,0,.77.16,1.04.45l5.81,6.25c.24.26.38.61.38.96v17.55c0,.78-.63,1.42-1.42,1.42h-106.56c-.78,0-1.42-.63-1.42-1.42v-23.81c0-.78.63-1.42,1.42-1.42h100.76M320.22,303.89h-100.76c-1.61,0-2.92,1.31-2.92,2.92v23.81c0,1.61,1.31,2.92,2.92,2.92h106.56c1.61,0,2.92-1.31,2.92-2.92v-17.55c0-.74-.28-1.44-.78-1.99l-5.81-6.25c-.55-.59-1.33-.93-2.14-.93h0Z"/>
+                                        <path d="M550.79,454.06c.78,0,1.42.63,1.42,1.42v19.14c0,.37-.14.72-.4.99l-4.78,4.9c-.27.27-.63.43-1.01.43h-158.17v-.16h-16.32c-.34,0-.67-.12-.93-.35l-5.54-4.83c-.31-.27-.49-.66-.49-1.07v-19.06c0-.78.63-1.42,1.42-1.42h184.81M550.79,452.56h-184.81c-1.61,0-2.92,1.31-2.92,2.92v19.06c0,.84.36,1.64,1,2.2l5.54,4.83c.53.46,1.21.72,1.92.72h15.64c.2.1.43.16.68.16h158.17c.78,0,1.54-.32,2.09-.88l4.78-4.9c.53-.55.83-1.27.83-2.04v-19.14c0-1.61-1.31-2.92-2.92-2.92h0Z"/>
+                                    </g>
+                                    
+                                    <g class="zone-group" data-zone="royale">
+                                        <path d="M984.18,411.6c.76,0,1.38.62,1.38,1.38v58.16c0,.76-.62,1.38-1.38,1.38h-66.8c-.37,0-.72-.15-.98-.41l-4.64-4.69c-.25-.26-.4-.61-.4-.97v-48c0-.38.16-.75.44-1.01l5.9-5.47c.25-.24.59-.37.94-.37h65.54M984.18,410.1h-65.54c-.73,0-1.42.27-1.96.77l-5.9,5.47c-.58.54-.92,1.31-.92,2.11v48c0,.76.29,1.48.83,2.02l4.64,4.69c.54.54,1.28.85,2.05.85h66.8c1.59,0,2.88-1.29,2.88-2.88v-58.16c0-1.59-1.29-2.88-2.88-2.88h0Z"/>
+                                        <path d="M984.18,507.5c.76,0,1.38.62,1.38,1.38v25.95c0,.76-.62,1.38-1.38,1.38h-71.44c-.76,0-1.38-.62-1.38-1.38v-25.95c0-.76.62-1.38,1.38-1.38h71.44M984.18,506h-71.44c-1.59,0-2.88,1.29-2.88,2.88v25.95c0,1.59,1.29,2.88,2.88,2.88h71.44c1.59,0,2.88-1.29,2.88-2.88v-25.95c0-1.59-1.29-2.88-2.88-2.88h0Z"/>
+                                        <path d="M1008.84,345.05c.86,0,1.56.7,1.56,1.56v25.38c0,.86-.7,1.56-1.56,1.56h-217.71c-.44,0-.86-.19-1.16-.52l-4.06-4.51c-.26-.29-.4-.66-.4-1.04v-20.87c0-.86.7-1.56,1.56-1.56h221.77M1008.84,343.55h-221.77c-1.69,0-3.06,1.37-3.06,3.06v20.87c0,.76.28,1.48.79,2.05l4.06,4.51c.58.64,1.41,1.01,2.28,1.01h217.71c1.69,0,3.06-1.37,3.06-3.06v-25.38c0-1.69-1.37-3.06-3.06-3.06h0Z"/>
+                                        <path d="M1017.02,411.6l8.67,9v138.53l-8.67,9h-20.48v-156.52h20.48M1017.02,410.1h-20.48c-.83,0-1.5.67-1.5,1.5v156.52c0,.83.67,1.5,1.5,1.5h20.48c.41,0,.8-.17,1.08-.46l8.67-9c.27-.28.42-.65.42-1.04v-138.53c0-.39-.15-.76-.42-1.04l-8.67-9c-.28-.29-.67-.46-1.08-.46h0Z"/>
+                                        <path d="M1015.87,587.85l8.39,9.06v62.02h-28.21v-71.09h19.82M1015.87,586.35h-19.82c-.83,0-1.5.67-1.5,1.5v71.09c0,.83.67,1.5,1.5,1.5h28.21c.83,0,1.5-.67,1.5-1.5v-62.02c0-.38-.14-.74-.4-1.02l-8.39-9.06c-.28-.31-.68-.48-1.1-.48h0Z"/>
+                                    </g>
+
+                                </svg>
+
+                                <div class="hotspot" data-target="1" style="top: 44%; left: 9%;">1</div>
+                                <div class="hotspot" data-target="1" style="top: 44%; left: 74%;">1</div>
+                                <div class="hotspot" data-target="2" style="top: 29%; left: 21%;">2</div>
+                                <div class="hotspot" data-target="3" style="top: 55%; left: 44%;">3</div>
+                                <div class="hotspot" data-target="4" style="top: 55%; left: 47%;">4</div>
+                                <div class="hotspot" data-target="5" style="top: 55%; left: 54%;">5</div>
+                                <div class="hotspot" data-target="6" style="top: 55%; left: 63%;">6</div>
+                            </div>
+                        </div>
+
+                        <div class="zone-keys">
+                            
+                            <div class="zone-badge avenue" data-zone="avenue">
+                                <div class="zone-title">AN Avenue</div>
+                                <div class="zone-subtitle">Nhà phố thương mại</div>
+                                <div class="zone-mini-popup">
+                                    <div class="mini-popup-desc">Tọa lạc tại vị trí mặt tiền đắt giá, nhịp đập thương mại sầm uất. Thiết kế tối ưu không gian kinh doanh tầng trệt.</div>
+                                    <div class="mini-popup-stats">Số lượng: <strong>68 căn</strong></div>
+                                </div>
+                            </div>
+                            
+                            <div class="zone-badge garden" data-zone="garden">
+                                <div class="zone-title">AN Garden</div>
+                                <div class="zone-subtitle">Nhà phố sân vườn</div>
+                                <div class="zone-mini-popup">
+                                    <div class="mini-popup-desc">Không gian sống yên bình giao hòa cùng thiên nhiên với hệ thống sân vườn nội khu xanh mát cho gia đình đa thế hệ.</div>
+                                    <div class="mini-popup-stats">Số lượng: <strong>112 căn</strong></div>
+                                </div>
+                            </div>
+                            
+                            <div class="zone-badge royale" data-zone="royale">
+                                <div class="zone-title">AN Royale</div>
+                                <div class="zone-subtitle">Nhà phố dinh thự</div>
+                                <div class="zone-mini-popup">
+                                    <div class="mini-popup-desc">Bộ sưu tập dinh thự giới hạn, tầm nhìn panorama tuyệt mỹ cùng thiết kế kiến trúc nguyên bản, tiện ích biệt lập.</div>
+                                    <div class="mini-popup-stats">Số lượng: <strong>24 căn</strong></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="legend-panel">
+                        <ul class="legend-list">
+                            <li class="legend-item" data-id="1">
+                                <div class="legend-number">1</div>
+                                <div class="legend-text">
+                                    <h4>Lối vào chính</h4>
+                                    <p>Main Entrance</p>
+                                </div>
+                            </li>
+                            <li class="legend-item" data-id="2">
+                                <div class="legend-number">2</div>
+                                <div class="legend-text">
+                                    <h4>Trường học</h4>
+                                    <p>Education</p>
+                                </div>
+                            </li>
+                            <li class="legend-item" data-id="3">
+                                <div class="legend-number">3</div>
+                                <div class="legend-text">
+                                    <h4>Không gian trải nghiệm</h4>
+                                    <p>The Lounge</p>
+                                </div>
+                            </li>
+                            <li class="legend-item" data-id="4">
+                                <div class="legend-number">4</div>
+                                <div class="legend-text">
+                                    <h4>Hồ bơi Hoàng Gia 300 m²</h4>
+                                    <p>Royal Pool, Kid's Pool & Jacuzzi</p>
+                                </div>
+                            </li>
+                            <li class="legend-item" data-id="5">
+                                <div class="legend-number">5</div>
+                                <div class="legend-text">
+                                    <h4>Công viên trung tâm 7.000 m²</h4>
+                                    <p>Central Park</p>
+                                </div>
+                            </li>
+                            <li class="legend-item" data-id="6">
+                                <div class="legend-number">6</div>
+                                <div class="legend-text">
+                                    <h4>Căn hộ cao tầng</h4>
+                                    <p>Apartment</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="collection-callout" style="border-top: 0px solid rgba(26, 5, 7, 0.1); padding-top: 32px; margin-top: 48px;">
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776682616/AMS_Stacking_Plan_280_qyjxhn.png" alt="Thông tin Căn hộ cao tầng" style="width: 200%; max-width: 300px; height: auto; display: block; margin: 0 auto; border-radius: 8px;" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mt-64">
+            <div class="w-layout-blockcontainer main-container w-container" data-aos="fade-up">
+                <h2 class="mb-24">Chuẩn sống khác biệt</h2>
+                <div class="text-big max-w-700 mb-64">Một hệ sinh thái sống khép kín với đầy đủ tiện ích, nơi cư dân tận hưởng sự cân bằng giữa thiên nhiên, thư giãn và kết nối cộng đồng.</div>
+
+                <div class="w-layout-grid grid-scroll-usp">
+                    <div id="w-node-_34936132-b87d-5585-1f87-6a377edc64d7-378b3c7d" class="master-sticky-usp">
+                        <div class="wrap-images-usp">
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776683852/AMS_Jogging_Path_copy_ak3z3y.jpg" loading="lazy" alt="Không gian xanh" class="image-sticky-usp usp-1 opacity-80"/>
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776683161/AMS_Pool_2_copy_d6qenr.jpg" loading="lazy" alt="Khu thư giãn" class="image-sticky-usp usp-2 opacity-80"/>
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776684017/AMS_BBQ_w1wyyx.jpg" loading="lazy" alt="Sinh hoạt cộng đồng" class="image-sticky-usp usp-3 opacity-80"/>
+                        </div>
+                    </div>
+                    <div id="w-node-a5d0d804-ddbc-f257-1962-c10ccd76e2e7-378b3c7d" class="right-sticky-usp">
+                        <div data-w-id="b14a3ed8-6b92-d19c-27e4-acc4ef0c923e" class="single-sticky-usp">
+                            <h2 class="no-margins">Không gian xanh<br>và cảnh quan</h2>
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776683852/AMS_Jogging_Path_copy_ak3z3y.jpg" loading="lazy" alt="Không gian xanh trên Mobile" class="image-sticky-usp-mobile"/>
+                            <div>Đắm mình trong môi trường sinh thái ngập tràn sắc xanh. Các công viên ven sông, vườn dạo bộ và tiểu cảnh nghệ thuật được bố trí tinh tế, mang đến nguồn không khí trong lành và sự bình yên thư thái mỗi ngày cho mọi cư dân.</div>
+                        </div>
+                        <div data-w-id="4a8ef4d5-3f38-859d-978f-33096353e3dd" class="single-sticky-usp">
+                            <h2 class="no-margins">Khu thư giãn<br>và sức khỏe</h2>
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776683161/AMS_Pool_2_copy_d6qenr.jpg" loading="lazy" alt="Khu thư giãn trên Mobile" class="image-sticky-usp-mobile"/>
+                            <div>Trang bị hệ thống hồ bơi vô cực, phòng gym chuẩn quốc tế, spa trị liệu cao cấp cùng khu yoga tĩnh lặng. Nơi cư dân rèn luyện sức khỏe, phục hồi năng lượng và tận hưởng các dịch vụ chăm sóc cá nhân chuẩn 5 sao ngay tại thềm nhà.</div>
+                        </div>
+                        <div class="single-sticky-usp">
+                            <h2 class="no-margins">Sinh hoạt cộng đồng</h2>
+                            <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776684017/AMS_BBQ_w1wyyx.jpg" loading="lazy" alt="Sinh hoạt cộng đồng trên Mobile" class="image-sticky-usp-mobile"/>
+                            <div>Sở hữu clubhouse sang trọng, khu BBQ, sân chơi trẻ em và các quảng trường sự kiện. Được thiết kế để trở thành điểm hẹn lý tưởng, tăng cường tính gắn kết, tạo dựng một cộng đồng cư dân văn minh, tinh hoa và đầy bản sắc.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section bg-light">
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="flex-heading-link" data-aos="fade-up">
+                    <h2 class="no-margins">Tin tức & cập nhật</h2>
+                    <a href="#" class="cta w-button">Xem tất cả</a>
+                </div>
+                
+                <div class="news-grid">
+                    <article class="news-card" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Dự án</div>
+                            <h3>Thông tin khởi công</h3>
+                            <p>Lễ khởi công chính thức dự án khu đô thị di sản đã diễn ra thành công tốt đẹp với sự góp mặt của các đối tác chiến lược.</p>
+                        </div>
+                        <a href="#" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
+                    </article>
+                    <article class="news-card" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Tiến độ</div>
+                            <h3>Cập nhật xây dựng</h3>
+                            <p>Đội ngũ thi công đang đẩy nhanh tiến độ, hoàn thiện cơ sở hạ tầng giai đoạn 1, đảm bảo chất lượng và an toàn tuyệt đối.</p>
+                        </div>
+                        <a href="#" aria-label="Đọc thêm về Cập nhật xây dựng">Đọc thêm →</a>
+                    </article>
+                    <article class="news-card" data-aos="fade-up" data-aos-delay="300">
+                        <div>
+                            <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Thị trường</div>
+                            <h3>Hoạt động đầu tư</h3>
+                            <p>Bất động sản giá trị truyền đời tiếp tục là kênh đầu tư sáng giá nhất trong bối cảnh quỹ đất trung tâm ngày càng khan hiếm.</p>
+                        </div>
+                        <a href="#" aria-label="Đọc thêm về Hoạt động đầu tư">Đọc thêm →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-light">
+            <div class="w-layout-blockcontainer main-container w-container">
+                <div class="form-light-container" data-aos="fade-up">
+                    <h2 class="form-heading-brown">NHẬN TƯ VẤN VỀ DỰ ÁN</h2>
+                    
+                    <form id="leadForm" action="#" method="POST" class="w-full">
+                        <div class="form-group-light">
+                            <label for="fullName">Họ và tên <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" class="input-underline" required />
+                        </div>
+                        
+                        <div class="form-group-light">
+                            <label for="emailAddress">Địa chỉ email</label>
+                            <input type="email" id="emailAddress" name="emailAddress" class="input-underline" />
+                        </div>
+                        
+                        <div class="form-group-light">
+                            <label for="phoneNumber">Số điện thoại <span class="required">*</span></label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" class="input-underline" required />
+                        </div>
+                        
+                        <div class="radio-group-title">Sản phẩm quan tâm</div>
+                        <div class="radio-options-wrapper">
+                            <label class="radio-label">
+                                <input type="radio" name="productInterest" value="Nhà phố thương mại" />
+                                Nhà phố thương mại
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="productInterest" value="Biệt thự" />
+                                Biệt thự
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="productInterest" value="Dinh thự" />
+                                Dinh thự
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="productInterest" value="Khác" />
+                                Khác
+                            </label>
+                        </div>
+                        
+                        <div class="form-group-light">
+                            <label for="messageBody">Yêu cầu khác</label>
+                            <textarea id="messageBody" name="messageBody" class="textarea-bordered"></textarea>
+                        </div>
+                        
+                        <div class="form-actions-light">
+                            <button type="submit" class="btn-submit-light">GỬI</button>
+                            <button type="button" class="btn-cancel-light" onclick="document.getElementById('leadForm').reset();">Hủy</button>
+                        </div>
+                    </form>
+
+                    <div id="formSuccess" class="form-success-message">
+                        <h3 style="color: var(--bg-dark-primary) !important;">Trân trọng cảm ơn</h3>
+                        <p class="no-margins">Yêu cầu của bạn đã được ghi nhận. Chuyên viên tư vấn sẽ liên hệ trong thời gian sớm nhất.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" data-aos="fade-in" data-aos-duration="1500" data-aos-offset="50">
+        <div class="w-layout-blockcontainer main-container w-container">
+            <h2 class="h2-footer">Sẵn sàng trải nghiệm?</h2>
+            
+            <div class="top-footer">
+                <a href="mailto:info@anmaison.com.vn" class="link-footer-top w-inline-block opacity-80" aria-label="Gửi email cho chúng tôi">
+                    <img src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/666a4428274c3800fa8e2ab3_Icon%20Mail%20Footer.svg" loading="lazy" alt="Email Icon" class="icon-footer-top-link" aria-hidden="true"/>
+                    <div>info@anmaison.com.vn</div>
+                </a>
+                <div class="right-top-footer">
+                    <div class="font-utm" style="font-size: 1.2rem;">Hotline: 08 88 988 800</div>
+                </div>
+            </div>
+            
+            <div class="w-layout-grid grid-bottom-footer-flex">
+                <div class="left-bottom-footer" style="display: flex; align-items: center; gap: 48px; width: 100%; justify-content: space-between;">
+                    <div class="top-left-bottom-footer">
+                        <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776685255/Frasers_Gelex_Collaboration_logo_zof5ka.png" alt="Collaboration Logos" style="max-width: 300px; height: auto; display: block;" />
+                    </div>
+                    <div class="bottom-left-bottom-footer">
+                        <a href="#home" class="link-small-footer">Trang chủ</a>
+                        <a href="#intro" class="link-small-footer">Giới thiệu</a>
+                        <a href="#residences" class="link-small-footer">Sản phẩm</a>
+                        <a href="#location" class="link-small-footer">Vị trí</a>
+                        <a href="#news" class="link-small-footer">Tin tức</a>
+                        <a href="#contact" class="link-small-footer">Liên hệ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider-legal-footer"></div>
+            
+            <div class="legal-footer">
+                <div class="text-legal-footer opacity-60">
+                    Copyright © 2026. Frasers Property Vietnam. All rights reserved.
+                </div>
+                <div class="text-legal-footer opacity-60">
+                    <a href="#" class="link-legal-footer">Chính sách bảo mật</a> | <a href="#" class="link-legal-footer">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66693ce69ab4af61d9849513" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/js/webflow.83f5c9d88.js" type="text/javascript"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 80,
+            easing: 'ease-out'
+        });
+
+        // ----------------------------------------------------
+        // LOGIC XỬ LÝ TƯƠNG TÁC TỔNG MẶT BẰNG & HIGHLIGHT ZONES
+        // ----------------------------------------------------
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Hotspots & Legend List logic
+            const hotspots = document.querySelectorAll('.hotspot');
+            const legendItems = document.querySelectorAll('.legend-item');
+
+            function highlightElements(id) {
+                clearHighlights(); 
+                document.querySelectorAll(`.hotspot[data-target="${id}"]`).forEach(el => el.classList.add('active'));
+                document.querySelectorAll(`.legend-item[data-id="${id}"]`).forEach(el => el.classList.add('active'));
+            }
+
+            function clearHighlights() {
+                hotspots.forEach(el => el.classList.remove('active'));
+                legendItems.forEach(el => el.classList.remove('active'));
+            }
+
+            hotspots.forEach(pin => {
+                pin.addEventListener('mouseenter', function() { highlightElements(this.getAttribute('data-target')); });
+                pin.addEventListener('mouseleave', clearHighlights);
+            });
+
+            legendItems.forEach(item => {
+                item.addEventListener('mouseenter', function() { highlightElements(this.getAttribute('data-id')); });
+                item.addEventListener('mouseleave', clearHighlights);
+            });
+
+            // 2. Interactive Polygons & Zone Badges logic
+            const zoneBadges = document.querySelectorAll('.zone-badge');
+            const zonePolygons = document.querySelectorAll('.zone-group');
+            const mapInner = document.querySelector('.map-inner');
+            let activeZone = null;
+
+            function activateZone(zoneId) {
+                if (activeZone === zoneId) {
+                    deactivateAllZones();
+                    return;
+                }
+                
+                activeZone = zoneId;
+                mapInner.classList.add('dimmed');
+
+                // Toggle badges
+                zoneBadges.forEach(b => {
+                    if (b.getAttribute('data-zone') === zoneId) {
+                        b.classList.add('active');
+                        b.classList.remove('dimmed');
+                    } else {
+                        b.classList.remove('active');
+                        b.classList.add('dimmed');
+                    }
+                });
+
+                // Toggle polygons
+                zonePolygons.forEach(p => {
+                    if (p.getAttribute('data-zone') === zoneId) {
+                        p.setAttribute('class', 'zone-group active');
+                    } else {
+                        p.setAttribute('class', 'zone-group');
+                    }
+                });
+            }
+
+            function deactivateAllZones() {
+                activeZone = null;
+                mapInner.classList.remove('dimmed');
+                
+                zoneBadges.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.remove('dimmed');
+                });
+                
+                zonePolygons.forEach(p => {
+                    p.setAttribute('class', 'zone-group');
+                });
+            }
+
+            // Lắng nghe sự kiện click cho các Badges
+            zoneBadges.forEach(badge => {
+                badge.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    activateZone(this.getAttribute('data-zone'));
+                });
+            });
+
+            // Lắng nghe sự kiện click cho từng Zone SVG
+            zonePolygons.forEach(polygon => {
+                polygon.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    activateZone(this.getAttribute('data-zone'));
+                });
+            });
+
+            // Khi click ra ngoài thì reset bản đồ
+            document.addEventListener('click', function(e) {
+                if (activeZone && !e.target.closest('.zone-badge') && !e.target.closest('.zone-group')) {
+                    deactivateAllZones();
+                }
+            });
+        });
+
+        // ----------------------------------------------------
+        // Lead form handler
+        // ----------------------------------------------------
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+
+        // Center the horizontal timeline on mobile/tablet load
+        function centerTimeline() {
+            const wrapper = document.querySelector('.timeline-scroll-wrapper');
+            if (wrapper && window.innerWidth <= 991) {
+                const container = wrapper.querySelector('.timeline-container');
+                wrapper.scrollLeft = (container.scrollWidth - wrapper.clientWidth) / 2;
+            }
+        }
+        window.addEventListener('load', centerTimeline);
+        window.addEventListener('resize', centerTimeline);
+    </script>
+</body>
+</html>
