@@ -530,6 +530,12 @@
             .hotspot { width: 20px; height: 20px; font-size: 0.6rem; }
             .zone-badge { width: 100%; }
 
+            /* Mở rộng popup news trên mobile để có không gian đọc tốt nhất */
+            .news-modal-content {
+                width: 95%;
+                height: 90vh;
+            }
+
             /* --- FIX LỖI POPUP MASTERPLAN TRÊN MOBILE (Accordion Style) --- */
             .zone-mini-popup {
                 position: relative;
@@ -699,11 +705,12 @@
             font-size: 1.1rem;
         }
         
-        /* Bọc Iframe cho các link không phải PDF trên Desktop */
         .iframe-wrapper {
             flex: 1;
             width: 100%;
             height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             position: relative;
             z-index: 5;
             background: transparent;
@@ -836,7 +843,7 @@
             </div>
             
             <div data-aos="fade-in" data-aos-duration="1500">
-                <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776757819/AN_Location_Map_FINAL_revert_label_6_w1j5tl.png" loading="lazy" alt="Bản đồ vị trí dự án ANmaison" class="image-map"/>
+                <img src="https://res.cloudinary.com/djpasasgr/image/upload/q_auto/f_auto/v1776759864/AN_Location_Map_FINAL_revert_label_6_c50wld.png" loading="lazy" alt="Bản đồ vị trí dự án ANmaison" class="image-map"/>
             </div>
 
             <div class="w-layout-blockcontainer main-container w-container">
@@ -1164,7 +1171,7 @@
                             <h3>Thông tin khởi công</h3>
                             <p>(Dân trí) - Sự góp mặt của "ông lớn" bất động sản Singapore - Frasers Property trong vai trò quản lý phát triển không chỉ là lời khẳng định về chất lượng, mà còn bảo chứng cho giá trị gia tăng của dự án ANmaison tại trung tâm thành phố cảng.</p>
                         </div>
-                        <a href="https://dantri.com.vn/bat-dong-san/frasers-property-mang-chuan-song-quoc-te-den-du-an-anmaison-20260109171051548.htm?fbclid=IwY2xjawRT4rJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEers8YPP-ThqvDD-2yfPoLv1eWkyggvnuqGor51EaJxWs787NUeP6YcvD2img_aem_KGNo4j2cuMsY91LCXuJaegk" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
+                        <a href="https://dantri.com.vn/bat-dong-san/frasers-property-mang-chuan-song-quoc-te-den-du-an-anmaison-20260109171051548.htm" class="news-popup-link" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
                     </article>
                     <article class="news-card" data-aos="fade-up" data-aos-delay="200">
                         <div>
@@ -1479,7 +1486,7 @@
         window.addEventListener('resize', centerTimeline);
 
         // ----------------------------------------------------
-        // NEWS POPUP MODAL LOGIC (UPDATED FOR MOBILE PDF FIX)
+        // NEWS POPUP MODAL LOGIC (Bắt buộc pop up trực tiếp tại trang cho mọi link)
         // ----------------------------------------------------
         document.addEventListener('DOMContentLoaded', function() {
             const popupLinks = document.querySelectorAll('.news-popup-link');
@@ -1495,17 +1502,7 @@
                         if(targetUrl && targetUrl !== '#') {
                             e.preventDefault();
                             
-                            // Kiểm tra Mobile & PDF
-                            const isMobile = window.innerWidth <= 767 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                            const isPdf = targetUrl.toLowerCase().includes('.pdf');
-                            
-                            // CÁCH GIẢI QUYẾT TRIỆT ĐỂ: Nếu dùng điện thoại và link PDF, mở bằng Tab mới để máy tự dùng phần mềm đọc gốc
-                            if (isMobile && isPdf) {
-                                window.open(targetUrl, '_blank');
-                                return; // Dừng việc mở modal
-                            }
-                            
-                            // Nếu dùng Desktop hoặc link không phải PDF, vẫn mở bằng Modal Popup
+                            // Hiển thị popup iframe trực tiếp trên trang cho tất cả các link
                             iframe.src = targetUrl;
                             modal.style.display = 'flex';
                             
