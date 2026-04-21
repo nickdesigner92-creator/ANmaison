@@ -658,6 +658,8 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             transform: translateY(20px);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .news-modal.active .news-modal-content {
             transform: translateY(0);
@@ -696,13 +698,22 @@
             z-index: 1;
             font-size: 1.1rem;
         }
+        
+        /* Bọc Iframe cho các link không phải PDF trên Desktop */
+        .iframe-wrapper {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 5;
+            background: transparent;
+        }
+        
         #newsIframe {
             width: 100%;
             height: 100%;
             border: none;
-            position: relative;
-            z-index: 5;
-            background: transparent;
+            display: block;
         }
 
     </style>
@@ -1153,7 +1164,7 @@
                             <h3>Thông tin khởi công</h3>
                             <p>(Dân trí) - Sự góp mặt của "ông lớn" bất động sản Singapore - Frasers Property trong vai trò quản lý phát triển không chỉ là lời khẳng định về chất lượng, mà còn bảo chứng cho giá trị gia tăng của dự án ANmaison tại trung tâm thành phố cảng.</p>
                         </div>
-                        <a href="https://dantri.com.vn/bat-dong-san/frasers-property-mang-chuan-song-quoc-te-den-du-an-anmaison-20260109171051548.htm?fbclid=IwY2xjawRT4rJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEers8YPP-ThqvDD-2yfPoLv1eWkyggvnuqGor51EaJxWs787NUeP6YcvD2img_aem_KGNo4j2cuMsY91LCXuJaeg" class="news-popup-link" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
+                        <a href="https://vneconomy.vn/cong-ty-co-phan-ha-tang-gelex-khoi-cong-khu-do-thi-nha-o-thap-tang-anmaison-tai-hai-phong.htm" class="news-popup-link" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
                     </article>
                     <article class="news-card" data-aos="fade-up" data-aos-delay="200">
                         <div>
@@ -1287,7 +1298,9 @@
         <div class="news-modal-content">
             <span class="news-modal-close">×</span>
             <div class="news-modal-loader">Đang tải nội dung...</div>
-            <iframe id="newsIframe" src="" frameborder="0" allowfullscreen></iframe>
+            <div class="iframe-wrapper">
+                <iframe id="newsIframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -1466,7 +1479,7 @@
         window.addEventListener('resize', centerTimeline);
 
         // ----------------------------------------------------
-        // NEWS POPUP MODAL LOGIC
+        // NEWS POPUP MODAL LOGIC (UPDATED FOR MOBILE PDF FIX)
         // ----------------------------------------------------
         document.addEventListener('DOMContentLoaded', function() {
             const popupLinks = document.querySelectorAll('.news-popup-link');
@@ -1479,18 +1492,28 @@
                     link.addEventListener('click', function(e) {
                         const targetUrl = this.getAttribute('href');
                         
-                        // Nếu href hợp lệ và khác '#', thực hiện hiển thị popup iframe
                         if(targetUrl && targetUrl !== '#') {
                             e.preventDefault();
-                            iframe.src = targetUrl;
-                            modal.style.display = 'flex'; // Thiết lập để transition opacity hoạt động
                             
-                            // Sử dụng timeout nhỏ để CSS transition có thể áp dụng
+                            // Kiểm tra Mobile & PDF
+                            const isMobile = window.innerWidth <= 767 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                            const isPdf = targetUrl.toLowerCase().includes('.pdf');
+                            
+                            // CÁCH GIẢI QUYẾT TRIỆT ĐỂ: Nếu dùng điện thoại và link PDF, mở bằng Tab mới để máy tự dùng phần mềm đọc gốc
+                            if (isMobile && isPdf) {
+                                window.open(targetUrl, '_blank');
+                                return; // Dừng việc mở modal
+                            }
+                            
+                            // Nếu dùng Desktop hoặc link không phải PDF, vẫn mở bằng Modal Popup
+                            iframe.src = targetUrl;
+                            modal.style.display = 'flex';
+                            
                             setTimeout(() => {
                                 modal.classList.add('active');
                             }, 10);
                             
-                            document.body.style.overflow = 'hidden'; // Ngăn trang cuộn khi popup mở
+                            document.body.style.overflow = 'hidden';
                         }
                     });
                 });
@@ -1499,22 +1522,19 @@
                     modal.classList.remove('active');
                     setTimeout(() => {
                         modal.style.display = 'none';
-                        iframe.src = ''; // Xóa source để ngừng tải/phát video nếu có
-                        document.body.style.overflow = 'auto'; // Phục hồi cuộn trang
-                    }, 300); // 300ms tương đương với thời gian CSS transition
+                        iframe.src = ''; 
+                        document.body.style.overflow = 'auto'; 
+                    }, 300); 
                 }
 
-                // Đóng khi click nút X
                 closeBtn.addEventListener('click', closeModal);
 
-                // Đóng khi click ra vùng tối xung quanh popup
                 modal.addEventListener('click', function(e) {
                     if (e.target === modal) {
                         closeModal();
                     }
                 });
                 
-                // Đóng khi nhấn phím ESC trên bàn phím
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape' && modal.classList.contains('active')) {
                         closeModal();
