@@ -130,7 +130,7 @@
         .line-hero-home, .expand-line, .wrap-line-hero-home { background-color: rgba(244, 241, 234, 0.3) !important; }
         .item-list-divider, .item-list-divider.line-bottom, .divider-bottom-footer, .divider-legal-footer, .expandable-content-flex { border-color: var(--border-light) !important; }
 
-.cta {
+        .cta {
             border: 1px solid var(--border-light-hover) !important; color: var(--text-light) !important; background: transparent !important;
             font-size: 0.8rem !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; padding: 12px 24px !important;
             transition: var(--transition-standard); text-decoration: none; cursor: pointer; display: inline-block;
@@ -353,7 +353,7 @@
         .zone-title { font-family: var(--font-body) !important; font-size: 1rem !important; font-weight: 500 !important; text-transform: none !important; margin-bottom: 4px !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--bg-dark-primary) !important; }
         .zone-subtitle { font-family: var(--font-body) !important; font-size: 0.8rem !important; font-weight: 400 !important; text-transform: none !important; line-height: 1.2 !important; letter-spacing: 0 !important; color: var(--bg-dark-primary) !important; }
 
-        /* MINI POPUP STYLES */
+        /* MINI POPUP STYLES (DÀNH CHO DESKTOP - MOBILE ĐƯỢC OVERRIDE BÊN DƯỚI) */
         .zone-mini-popup {
             position: absolute;
             bottom: calc(100% + 15px); /* Nổi lên trên badge */
@@ -382,7 +382,7 @@
             border-style: solid;
             border-color: #ffffff transparent transparent transparent;
         }
-        /* Hiện popup khi badge đang active */
+        /* Hiện popup khi badge đang active trên Desktop */
         .zone-badge.active .zone-mini-popup {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
@@ -476,6 +476,12 @@
         }
         .btn-cancel-light:hover { text-decoration: underline; }
 
+        /* Animation cho Accordion trên Mobile */
+        @keyframes fadeInMobile {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* =========================================
            10. RESPONSIVE BREAKPOINTS
            ========================================= */
@@ -523,6 +529,28 @@
             .map-container { padding: 16px; }
             .hotspot { width: 20px; height: 20px; font-size: 0.6rem; }
             .zone-badge { width: 100%; }
+
+            /* --- FIX LỖI POPUP MASTERPLAN TRÊN MOBILE (Accordion Style) --- */
+            .zone-mini-popup {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none !important;
+                width: 100%;
+                margin-top: 16px;
+                display: none;
+                box-shadow: none;
+                border: 1px solid rgba(26, 5, 7, 0.1);
+            }
+            .zone-mini-popup::after {
+                display: none !important;
+            }
+            .zone-badge.active .zone-mini-popup {
+                display: block;
+                opacity: 1;
+                transform: none !important;
+                animation: fadeInMobile 0.3s ease forwards;
+            }
         }
         
         @media (max-width: 479px) {
@@ -530,7 +558,7 @@
             h1 { font-size: 1.4rem !important; }
         }
 
-/* --- BỐ CỤC FOOTER TRÁI - GIỮA --- */
+        /* --- BỐ CỤC FOOTER TRÁI - GIỮA --- */
         .custom-footer-layout { 
             display: grid; 
             grid-template-columns: 1fr auto 1fr; 
@@ -551,7 +579,7 @@
             .menu-center { justify-content: flex-start; }
         }
 
-/* 1. Trả lại lớp phủ đen full hình & canh mí dưới thẳng tắp */
+        /* 1. Trả lại lớp phủ đen full hình & canh mí dưới thẳng tắp */
         .overlay-horizontal {
             position: absolute !important;
             top: 0 !important;
@@ -562,39 +590,119 @@
             height: 100% !important;
             padding: 32px !important; 
             
-            display: grid;
-            grid-template-columns: auto 1fr; 
-            align-content: end; /* Neo toàn bộ lưới xuống sát đáy khung */
-            align-items: end; /* QUAN TRỌNG: Canh 2 text bằng mí DƯỚI cùng, ép thẳng hàng trên mọi thẻ */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Canh text chính và phụ thẳng hàng ở mí dưới */
             gap: 40px;
         }
         
         .overlay-horizontal .text-style-h3 {
             margin-bottom: 0 !important; 
-            line-height: 1.1 !important; /* Siết chặt line-height để loại bỏ khoảng trống thừa dưới chân chữ */
+            line-height: 1 !important; 
         }
         
         .overlay-horizontal .subtitle {
             text-align: right; 
-            justify-self: end; 
             max-width: 600px; 
-            margin-bottom: 2px !important; /* Bù trừ nhẹ 2px để viền dưới của font nhỏ khớp hoàn hảo với font to */
+            margin-bottom: 0 !important; 
+            line-height: 1 !important;
+            padding-bottom: 0.2em; /* Bù trừ khoảng cách chân chữ để thẳng hàng */
         }
 
         /* 2. Responsive cho Mobile */
         @media (max-width: 767px) {
             .overlay-horizontal {
                 padding: 24px !important;
-                grid-template-columns: 1fr; /* Đổi về 1 cột dọc */
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
                 gap: 12px;
-                align-items: start; /* Trên mobile thì trả về canh từ trên xuống do đã xếp dọc */
             }
             .overlay-horizontal .subtitle {
                 text-align: left; 
-                justify-self: start; 
                 max-width: 100%;
-                margin-bottom: 0 !important;
+                padding-bottom: 0;
             }
+        }
+
+        /* =========================================
+           11. NEWS POPUP MODAL STYLES
+           ========================================= */
+        .news-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .news-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        .news-modal-content {
+            position: relative;
+            background-color: #fff;
+            width: 90%;
+            max-width: 1000px;
+            height: 85vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .news-modal.active .news-modal-content {
+            transform: translateY(0);
+        }
+        .news-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #1a0507;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            background: #f4f1ea;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+        .news-modal-close:hover {
+            background: var(--accent-dark);
+            color: #fff;
+        }
+        .news-modal-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1a0507;
+            font-family: var(--font-body);
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+        #newsIframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: relative;
+            z-index: 5;
+            background: transparent;
         }
 
     </style>
@@ -1043,25 +1151,25 @@
                         <div>
                             <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Dự án</div>
                             <h3>Thông tin khởi công</h3>
-                            <p>Lễ khởi công chính thức dự án khu đô thị di sản đã diễn ra thành công tốt đẹp với sự góp mặt của các đối tác chiến lược.</p>
+                            <p>(Dân trí) - Sự góp mặt của "ông lớn" bất động sản Singapore - Frasers Property trong vai trò quản lý phát triển không chỉ là lời khẳng định về chất lượng, mà còn bảo chứng cho giá trị gia tăng của dự án ANmaison tại trung tâm thành phố cảng.</p>
                         </div>
-                        <a href="#" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
+                        <a href="https://vneconomy.vn/cong-ty-co-phan-ha-tang-gelex-khoi-cong-khu-do-thi-nha-o-thap-tang-anmaison-tai-hai-phong.htm" class="news-popup-link" aria-label="Đọc thêm về Thông tin khởi công">Đọc thêm →</a>
                     </article>
                     <article class="news-card" data-aos="fade-up" data-aos-delay="200">
                         <div>
                             <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Tiến độ</div>
                             <h3>Cập nhật xây dựng</h3>
-                            <p>Đội ngũ thi công đang đẩy nhanh tiến độ, hoàn thiện cơ sở hạ tầng giai đoạn 1, đảm bảo chất lượng và an toàn tuyệt đối.</p>
+                            <p>(ANmaison) - Những ngày tháng 4 ghi dấu ấn bằng sự sôi động trên công trường và những bước tiến vượt bậc về tiến độ thi công. Những hạng mục chủ chốt đang thay đổi diện mạo từng ngày, từ khu nhà mẫu đang hoàn thiện kết cấu nội khu cho đến công viên           Central Park đang dần thành hình giữa lòng dự án.</p>
                         </div>
-                        <a href="#" aria-label="Đọc thêm về Cập nhật xây dựng">Đọc thêm →</a>
+                        <a href="https://www.dropbox.com/scl/fi/feiwc9vmsggk8xq6mjbz6/AMS_Newsletter_260420.pdf?rlkey=4mxxuzpkzmsmfan65zpuf3j8f&raw=1" class="news-popup-link" aria-label="Đọc thêm về Cập nhật xây dựng">Đọc thêm →</a>
                     </article>
                     <article class="news-card" data-aos="fade-up" data-aos-delay="300">
                         <div>
                             <div class="uppercase-tracked opacity-60 mb-12" style="font-size: 0.75rem !important;">Thị trường</div>
                             <h3>Hoạt động đầu tư</h3>
-                            <p>Bất động sản giá trị truyền đời tiếp tục là kênh đầu tư sáng giá nhất trong bối cảnh quỹ đất trung tâm ngày càng khan hiếm.</p>
+                            <p>(baodautu.vn) - Trong bức tranh biến động của thị trường, Hải Phòng lộ diện là mảnh ghép còn thiếu cho một danh mục đầu tư bền vững. Nếu Hà Nội và TP.HCM đã chạm tới những ngưỡng giá đắt đỏ, thì nội đô Hải Phòng lại mang đến cơ hội sở hữu tài sản truyền đời với mức đầu tư tối ưu, phản ánh một khoảng cách giá trị cực lớn đang chờ được lấp đầy.</p>
                         </div>
-                        <a href="#" aria-label="Đọc thêm về Hoạt động đầu tư">Đọc thêm →</a>
+                        <a href="https://baodautu.vn/hai-phong-dinh-vi-lai-gia-tri-loi-trung-tam-va-co-hoi-so-huu-di-san-truyen-doi-d572232.html?fbclid=IwY2xjawRT4whleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEep6SOLxHcHqOVIBI5lv5qT2skND1d6J6RDRhpaal8e1PZIaZMNHu66u4tiEw_aem_SMjSGD5YyrAq40pgApe2OA" class="news-popup-link" aria-label="Đọc thêm về Hoạt động đầu tư">Đọc thêm →</a>
                     </article>
                 </div>
             </div>
@@ -1174,6 +1282,14 @@
             </div>
         </div>
     </footer>
+
+    <div id="newsModal" class="news-modal">
+        <div class="news-modal-content">
+            <span class="news-modal-close">×</span>
+            <div class="news-modal-loader">Đang tải nội dung...</div>
+            <iframe id="newsIframe" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66693ce69ab4af61d9849513" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.prod.website-files.com/66693ce69ab4af61d9849513/js/webflow.83f5c9d88.js" type="text/javascript"></script>
@@ -1292,7 +1408,7 @@
             });
         });
 
-// ----------------------------------------------------
+        // ----------------------------------------------------
         // Lead form handler (Tích hợp Formspree AJAX)
         // ----------------------------------------------------
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
@@ -1348,6 +1464,64 @@
         }
         window.addEventListener('load', centerTimeline);
         window.addEventListener('resize', centerTimeline);
+
+        // ----------------------------------------------------
+        // NEWS POPUP MODAL LOGIC
+        // ----------------------------------------------------
+        document.addEventListener('DOMContentLoaded', function() {
+            const popupLinks = document.querySelectorAll('.news-popup-link');
+            const modal = document.getElementById('newsModal');
+            const iframe = document.getElementById('newsIframe');
+            const closeBtn = document.querySelector('.news-modal-close');
+
+            if(popupLinks.length > 0 && modal && iframe && closeBtn) {
+                popupLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const targetUrl = this.getAttribute('href');
+                        
+                        // Nếu href hợp lệ và khác '#', thực hiện hiển thị popup iframe
+                        if(targetUrl && targetUrl !== '#') {
+                            e.preventDefault();
+                            iframe.src = targetUrl;
+                            modal.style.display = 'flex'; // Thiết lập để transition opacity hoạt động
+                            
+                            // Sử dụng timeout nhỏ để CSS transition có thể áp dụng
+                            setTimeout(() => {
+                                modal.classList.add('active');
+                            }, 10);
+                            
+                            document.body.style.overflow = 'hidden'; // Ngăn trang cuộn khi popup mở
+                        }
+                    });
+                });
+
+                function closeModal() {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        iframe.src = ''; // Xóa source để ngừng tải/phát video nếu có
+                        document.body.style.overflow = 'auto'; // Phục hồi cuộn trang
+                    }, 300); // 300ms tương đương với thời gian CSS transition
+                }
+
+                // Đóng khi click nút X
+                closeBtn.addEventListener('click', closeModal);
+
+                // Đóng khi click ra vùng tối xung quanh popup
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+                
+                // Đóng khi nhấn phím ESC trên bàn phím
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && modal.classList.contains('active')) {
+                        closeModal();
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
